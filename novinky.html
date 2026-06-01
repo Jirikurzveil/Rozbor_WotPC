@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorldofTanks info</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: rgba(0, 0, 0, 0.836);
+            margin: 0;
+            color: white;
+            overflow-x: hidden; 
+        }
+
+        header {
+            background-color: rgb(0, 0, 0);
+            background-image: url("img/stažený\ soubor.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 120px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            margin: auto;
+            padding: 0 15px;
+        }
+
+        .container-in {
+            display: flex;
+            gap: 20px;
+        }
+
+        .burger-btn {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            margin: 15px 0;
+            z-index: 100;
+        }
+
+        .burger-btn span {
+            width: 30px;
+            height: 3px;
+            background: white;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .burger-btn.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .burger-btn.open span:nth-child(2) { opacity: 0; }
+        .burger-btn.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+        .leftmenu {
+            border: 1px solid silver;
+            border-radius: 25px;
+            background-color: #080838;
+            width: 25%;
+            padding: 10px;
+            margin-top: 18px;
+            margin-bottom: 18px;
+            height: fit-content;
+            transition: all 0.4s ease;
+        }
+
+        .leftmenu h2 { font-size: 1.1em; text-align: center; }
+        .leftmenu ul { list-style-type: none; padding-left: 0; }
+
+        .leftmenu a {
+            text-decoration: none;
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: block;
+            padding: 15px;
+            margin: 5px 0;
+            border-radius: 25px;
+            box-shadow: white 0 0 0 1px;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .leftmenu a:hover { background-color: rgba(0, 217, 255, 0.342); }
+
+        .pravy { width: 75%; }
+
+        article {
+            border: 1px solid rgb(53, 51, 51);
+            border-radius: 35px;
+            box-shadow: 8px 8px 8px rgba(0,0,0,0.5);
+            padding: 1.5em;
+            margin: 1em 0;
+            background-color: #080838;
+        }
+
+        footer {
+            border: 1px solid silver;
+            background-color: #080838;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .container-in { flex-direction: column; }
+
+            .burger-btn { display: flex; }
+
+            .leftmenu {
+                width: 100%;
+                margin-top: 0;
+                opacity: 0;
+                visibility: hidden;
+                max-height: 0;
+                overflow: hidden;
+                transform: translateY(-20px);
+                margin-bottom: 0;
+                border: none;
+            }
+
+            .leftmenu.active {
+                opacity: 1;
+                visibility: visible;
+                max-height: 500px; 
+                transform: translateY(0);
+                margin-bottom: 18px;
+                border: 1px solid silver;
+                padding: 15px;
+            }
+
+            .pravy { width: 100%; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header></header>
+
+        <button class="burger-btn" id="burgerIcon" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="container-in">
+            <nav class="leftmenu" id="mainMenu">
+                <h2>Odkazy</h2>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="tankypodleurovni.html">Tanky podle úrovní</a></li>
+                    <li><a href="tankypodletypu.html">Tanky podle typu</a></li>
+                    <li><a href="mapy.html">Mapy</a></li>
+                    <li><a href="https://tanks.gg/list">Statistiky tanků</a></li>
+                </ul>
+            </nav>
+
+            <div class="pravy">
+                <article>
+                    <h3>Patch(aktualizace) 2.0: 2025</h3>
+                    <hr>
+                    <p> 1. Tanky XI. úrovně (Tier XI)
+Poprvé po více než deseti letech byla překročena hranice desáté úrovně.
+
+16 nových strojů: Do hry přibyly modernější stroje (např. s reaktivním pancéřováním nebo pokročilými systémy palby).
+
+Unikátní mechaniky: Tanky XI. úrovně mají vlastní systém vylepšování (Elite Rewards), který nahrazuje polní vylepšení. Můžete na ně namontovat vizuální doplňky jako Stat Tracker (počítač zničených nepřátel přímo na tanku) nebo 3D doplňky na hlaveň.</p>
+<hr>
+
+<p>
+2. Kompletní rebalanc 2.0
+Wargaming přepracoval stovky tanků napříč všemi úrovněmi, aby hra byla férovější a plynulejší.
+
+Zjednodušení výzkumu: Odstranily se zbytečné mezimoduly (stará děla, rádia), aby byl postup technologickým stromem rychlejší.
+
+Posílení lehkých tanků: LT dostaly více bodů výdrže (HP), aby na bojišti vydržely déle a mohly lépe plnit roli průzkumníků.
+
+Základní konfigurace: Tanky v "základu" (stock) jsou nyní mnohem silnější a hratelnější než dříve.</p>
+<hr>
+<p>
+3. Nová garáž a moderní rozhraní (UX)
+Garáž prošla kompletním vizuálním i funkčním restartem:
+
+Vertikální menu: Navigace je nyní po levé straně, což uvolnilo prostor pro pohled na tank.
+
+Inspektor pancíře: Přímo v garáži si nyní můžete prohlédnout tloušťku pancíře a úhly odrazu, aniž byste museli používat externí weby.
+
+Výsledky bitvy: Jsou nyní přes celou obrazovku v moderním filmovém stylu s 3D modelem vašeho tanku.</p>
+<hr>
+
+<p>
+4. Osobní mise 3.0
+Nová kampaň úkolů, která není omezená národy, ale soustředí se na herní role (např. ostřelovač, útočník). Cílem jsou tři unikátní stroje:
+
+Windhund (Tier VIII)
+
+Dravec (Tier X)
+
+Black Rock (Tier XI) – prestižní odměna s unikátní mechanikou.</p>
+<hr>
+
+<p>
+5. Přepracovaný Matchmaker a role
+Systém skládání týmů je nyní mnohem přísnější:
+
+Role v týmu: Matchmaker se snaží zrcadlit role (např. stejný počet útočných těžkých tanků na obou stranách).
+
+Limity tříd: Byly zavedeny tvrdší limity na počet dělostřelectva, lehkých tanků a stíhačů v jedné bitvě pro lepší hratelnost.</p>
+<hr>
+
+<p>
+6. Nový obsah a mapy
+Mapa Nordskar: Bojiště na sopečném ostrově s tunely a městskými zónami.
+
+Operace Bod varu: Nový PvE režim (proti AI), kde si můžete vyzkoušet tanky XI. úrovně v příběhových misích.
+
+Vylepšený zvuk: Zvuky motorů byly nahrávány ze skutečných historických strojů a audio je nyní více prostorové.
+
+Poznámka: Pokud jste se do hry vrátili po delší pauze, doporučuji využít "Uvítací balíček 2.0", který často umožňuje okamžitě odemknout jednu celou linii až do X. úrovně zdarma.</p>
+                </article>
+                <article>
+                    <h3>Patch(aktualizace) 2.1: 2025</h3>
+                    <p>
+                    1. Americké automatické kanóny (Autocannons)
+                    Do hry přibyla nová větev amerických středních tanků (začíná na Tier VII u tanku T20), která vrcholí strojem Ares 90 C na XI. úrovni.
+                    
+                    Mechanika přehřívání: Tyto tanky nemají tradiční nabíjení zásobníku. Mohou střílet nepřetržitě, ale hlaveň se zahřívá. Čím je teplejší, tím horší je přesnost, dokud se zbraň úplně nezablokuje kvůli přehřátí.
+                    
+                    Rezervní pásy: Stejně jako linie tanků Yoh, i tyto stroje mohou pokračovat v pohybu (byť pomalu), pokud přijdou o hlavní pásy.</p>
+                    <hr>
+                    
+                    <p>
+                    2. Další tanky XI. úrovně (Tier XI)
+                    Technologický strom se rozrostl o dva unikátní stroje:
+                    
+                    PTZ-78 (Čína): Stíhač tanků vybavený sekvenčními raketovými motory. Na rozdíl od starších systémů lze levý a pravý motor aktivovat nezávisle, což umožňuje bleskové otočení korby na místě.
+                    
+                    STK-2 (Japonsko): Těžký tank s mechanikou aktivního chlazení děla. Během nabíjení probíhá proces chlazení, který po určité době výrazně zlepší přesnost pro další výstřel (tzv. "precision shot").</p>
+                    <hr>
+
+                    <p>
+                    3. Fyzika zvuku 2.0
+                    Byl zaveden pokročilý systém simulace zvuku, který reaguje na geometrii mapy:
+                    
+                    Odpory a ozvěny: Zvuk výstřelů a motorů se nyní "ohýbá" kolem rohů budov a tlumí za překážkami nebo v tunelech. To hráčům umožňuje lépe lokalizovat nepřítele jen podle sluchu.
+                    
+                    Interiérové efekty: Zvuky se dramaticky mění, pokud se tank nachází v uzavřených prostorech (např. tunely na mapě Nordskar).</p>
+                    <hr>
+                    
+                    <p>
+                    4. Náhodné události (Random Events)
+                    Seznam map s dynamickými událostmi se rozšířil o Mountain Pass, Highway a Ghost Town.
+                    
+                    Na mapě Mountain Pass například pád německé stíhačky do mostu otevře novou cestu z rokle na vyvýšená místa, což kompletně mění taktiku ve druhé polovině bitvy.</p>
+                    <hr>
+
+                    <p>
+                    5. Vylepšení rozhraní a achievementů
+                    Záložka postupu misí: Po bitvě se nyní zobrazuje detailní přehled pokroku v osobních, denních i kampaňových misích na jednom místě.
+                    
+                    Outstanding Collector: Tento úspěch se stal trvalým. Získají ho hráči, kteří mají v garáži všechny vyzkoumatelné tanky od VI. do X. úrovně.
+                    
+                    Rychlá bitva: Do výsledkové obrazovky bylo přidáno tlačítko pro okamžitý vstup do další fronty, aniž byste se museli vracet do garáže.
+                     <hr>
+
+                    <p>
+                    6. Kolaborace: RoboCop
+                    Součástí patche byl i speciální Battle Pass, kde bylo možné získat:
+                    
+                    Prémiový tank OCP Peacekeeper (Tier IX Heavy).
+                    
+                    Velitele RoboCopa a další postavy z filmu z roku 1987 s unikátním dabingem.</p>
+                </article>
+                <article>
+                    <h3>Patch(aktualizace) 2.2: 2026</h3>
+                    <hr>
+                    <p>1. Kompletní rework posádky (Crew 2.0 Completion)
+Wargaming dokončil dlouhodobou přestavbu systému posádek:
+
+10 nových perkunů: Každá kvalifikace (velitel, řidič atd.) dostala 2 nové schopnosti. Například perk "Spolehlivé uložení" nyní zvyšuje odolnost podvozku a snižuje šanci na požár motoru o 15 %.
+
+Reset za kredity: Konečně byla zavedena možnost resetovat naučené perky za 100 000 kreditů bez penalizace (dříve bylo nutné platit zlatem pro 100% zachování zkušeností).
+
+Knihy posádky na prémiové tanky: Nyní můžete používat brožury a knihy zkušeností přímo na posádky v prémiových tancích, aniž byste je museli přeškolovat.</p>
+<hr>
+
+<p>
+2. Tři nové tanky XI. úrovně (Tier XI)
+V pod-aktualizaci 2.2.1 se technologický strom rozšířil o další moderní monstra:
+
+Gorilla (Německo): Těžký tank s extrémně silným čelním pancířem a pomalým, ale devastujícím dělem.
+
+Executor (Británie): Střední tank zaměřený na mobilitu a přesnou střelbu za jízdy.
+
+Fauteur (Francie): Nový kolový stíhač tanků na XI. úrovni s vylepšenou stabilizací.</p>
+<hr>
+
+<p>
+3. Rebalanc linie Ares (USA)
+Americké střední tanky s automatickými kanóny (zavedené v patchi 2.1) byly příliš silné, proto došlo k úpravám:
+
+Snížení poškození (alfa): Poškození všech typů granátů (včetně HE a AP) bylo mírně sníženo, aby se omezil jejich extrémní "burst" potenciál v blízkém boji.
+
+Delší chlazení: Doba, za kterou se hlaveň po palbě ochladí, byla prodloužena.</p>
+<hr>
+
+<p>
+4. Vylepšený Inspektor pancíře
+Tento nástroj v garáži je nyní mnohem interaktivnější:
+
+Výběr útočníka: Můžete si zvolit konkrétní tank, dělo a typ munice, proti kterému chcete pancíř testovat.
+
+Rotace modulů: Nyní můžete v inspektoru otáčet věží a dělem modelu, abyste viděli efektivní pancíř i při úhlování věže.</p>
+<hr>
+
+<p>
+5. Battle Route Tips (Tipy pro trasy)
+Nová funkce pro začátečníky i pokročilé:
+
+Během odpočtu před bitvou a v prvních minutách se na minimapě zobrazují nejčastější trasy, které hráči s vaším typem tanku na dané mapě volí. Pomáhá to v orientaci, kam se vydat pro nejlepší výsledky.</p>
+<hr>
+
+<p>
+6. WoT Plus Pro
+Předplatné WoT Plus dostalo novou úroveň "Pro":
+
+Pro Boost: 35% bonus ke kreditům, bojovým zkušenostem a zkušenostem posádky pro jedno vybrané vozidlo (lze měnit každých 12 hodin).
+
+Battle Pass Plus: Možnost získávat body do Battle Passu v dalších režimech, které dříve body nenabízely.</p>
+                </article>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mainMenu');
+            const burger = document.getElementById('burgerIcon');
+            
+            menu.classList.toggle('active');
+            burger.classList.toggle('open');
+        }
+    </script>
+</body>
+
+</html>
